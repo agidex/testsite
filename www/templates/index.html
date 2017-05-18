@@ -1,0 +1,101 @@
+<html>
+<head>
+    <title>Test Page</title>
+	  <meta charset="utf-8">
+	  <link rel="stylesheet" href="assets/style.css"></link>
+	  <script type="text/javascript" src="js/time.js"></script>
+</head>
+<body onload="startTime()">
+	
+	<div id="toplevel">
+
+		<div id="header" class="container">
+			<div id="title">
+			this is head
+			</div>
+			<div id="login-stack">
+				<div id="login-line">
+					<?php if(strlen($username) == 0): ?>
+						<a href="/login.php">Login</a>
+						<a href="/login.php?reg=1">Reg</a>
+					<?php else: ?>
+						<a href="/login.php">Logout</a>
+					<?php endif; ?>
+					</br>
+				</div>
+				<div id=welcome>
+					Welcome, 
+					<span>
+						<?php if(strlen($username) == 0): ?>
+							Guest
+						<?php else: ?>
+							<?=$username?>
+						<?php endif; ?>
+					</span>
+				</div>
+				
+				<div id="datetime">
+					today: 
+					<span id="time-section">
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div id="menu">
+				<div class="menu-item">
+					<a href="/add_post.php">
+					Add Post
+					</a>
+				</div>
+				<div class="menu-item">
+					<a href="/usa">
+					USA
+					</a>
+				</div>
+				<div class="menu-item">		
+					<a href="/usa">
+					Great Britain
+					</a>
+				</div>
+				<div class="menu-item">		
+					<a href="/usa">
+					France
+					</a>
+				</div>
+			</div>
+			<div id="main-content">
+			<?php include $templ; ?>
+			<!--
+				<div class="post">
+					<div class="post-header">
+						POST 1 Some Ridiculous Title
+					</div>
+					<div class="post-text">
+						lorem ipsum bla bla blalorem ipsum bla bla blalorem ipsum bla bla blalorem ipsum bla bla blalorem ipsum bla bla blalorem ipsum bla bla blalorem blalorem ipsum bla bla blalorem ipsum bla bla blalorem ipsum bla bla bla
+					</div>
+					<div class="post-footer">
+						<div class="post-username">
+							User: username
+						</div>
+						<div class="post-date">
+							Posted: 31.05.2001
+						</div>
+					</div>
+				</div>
+			-->
+			</div>
+			<div id="ads">
+			<h4>Ads</h4>
+				kill me please!!!
+				</br>
+				With <a href="http://adblockplus.org">AdBlock</a>
+			</div>
+		</div>
+		
+		<div id="footer">
+			footer text
+		</div>
+	</div>
+</body>
+</html>

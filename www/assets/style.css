@@ -1,0 +1,154 @@
+﻿body {
+	font-family: Tahoma,Arial,sans-serif;
+	margin: 0;
+  padding: 0;
+	background-color: #e6e6ff;
+}
+
+#toplevel {
+	display: block;
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+  
+  background-color: #c3cbd8;
+}
+
+#header {
+	background-color: yellow;
+	height: 75px;
+}
+
+#title {
+	background-color: #267326;
+	float: left;
+}
+
+#login-stack {
+	background-color: #267326;
+	float: right;
+	width: 200px;
+	height: 100%;
+	position: relative;
+}
+
+#login-line {
+	text-align: right;
+	padding-right: 5px;
+}
+
+#welcome {
+	text-align: left;
+	padding-left: 5px;
+}
+
+#welcome span {
+	color: red;
+}
+
+#datetime {
+	text-align: left;
+	font-size: 11px;
+	white-space: nowrap;
+	padding: 5px;
+	background-color: red;
+	
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.container {
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#menu {
+	background-color: #267326;
+	float: left;
+	width: 150px;
+	
+	height: auto;
+}
+
+.menu-item:hover {
+	background-color: #269000;
+	text-align: center;
+}
+
+.menu-item {
+	text-align: center;
+	
+	margin: 10px;
+	font: 1em;
+	line-height: 100px;
+	background-color: #265000;
+	
+	border-radius: 5px;
+}
+
+.menu-item a {
+	display: block;
+}
+
+#main-content {
+	float:left;
+	width: 550px;
+}
+
+#ads {
+	display: none;
+	background-color: #991f00;
+	float:right;
+	width: 100px;
+	padding: 10px;
+}
+
+#ads h4 {
+	background-color: #99aa00;
+	text-align: center;
+}
+
+.post {
+	/* width: 500px; */
+	border: 2px solid black;
+	border-radius: 5px;
+	display: block;
+	background-color: #9494b8;
+	margin: 10px;
+}
+
+.post-header {
+	padding-left: 5px;
+	font-size: 19px;
+}
+
+.post-text{
+	padding: 5px;
+	background-color: #e0e0eb;
+}
+
+.post-footer {
+	font-size: 14px;
+	padding-left: 5px;
+	padding-right: 5px;
+	overflow: hidden;
+}
+
+.post-username{
+	float: left;
+}
+
+.post-date{
+	float: right;
+}
+
+#add-post {
+  margin: 10px;
+}
+
+#footer {
+	background-color: orange;
+	height: 75px;
+}
