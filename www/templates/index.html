@@ -15,29 +15,28 @@
 			</div>
 			<div id="login-stack">
 				<div id="login-line">
-					<?php if(strlen($username) == 0): ?>
+					<?php if(!isset($_SESSION['login'])): ?>
 						<a href="/login.php">Login</a>
-						<a href="/login.php?reg=1">Reg</a>
+						<a href="/register.php">Reg</a>
 					<?php else: ?>
-						<a href="/login.php">Logout</a>
+						<a href="/logout.php">Logout</a>
 					<?php endif; ?>
 					</br>
 				</div>
 				<div id=welcome>
 					Welcome, 
 					<span>
-						<?php if(strlen($username) == 0): ?>
+						<?php if(!isset($_SESSION['login'])): ?>
 							Guest
 						<?php else: ?>
-							<?=$username?>
+							<?=$_SESSION['login']?>
 						<?php endif; ?>
 					</span>
 				</div>
 				
 				<div id="datetime">
 					today: 
-					<span id="time-section">
-					</span>
+					<span id="time-section"></span>
 				</div>
 			</div>
 		</div>
@@ -64,26 +63,28 @@
 					</a>
 				</div>
 			</div>
-			<div id="main-content">
-			<?php include $templ; ?>
-			<!--
-				<div class="post">
-					<div class="post-header">
-						POST 1 Some Ridiculous Title
-					</div>
-					<div class="post-text">
-						lorem ipsum bla bla blalorem ipsum bla bla blalorem ipsum bla bla blalorem ipsum bla bla blalorem ipsum bla bla blalorem ipsum bla bla blalorem blalorem ipsum bla bla blalorem ipsum bla bla blalorem ipsum bla bla bla
-					</div>
-					<div class="post-footer">
-						<div class="post-username">
-							User: username
+			<div id="main-container">
+				<div id="main-content">
+				  <?php include $templ; ?>
+					<!--
+						<div class="post">
+							<div class="post-header">
+								POST 1 Some Ridiculous Title
+							</div>
+							<div class="post-text">
+								lorem ipsum bla bla blalorem ipsum bla bla blalorem ipsum bla bla blalorem ipsum bla bla blalorem ipsum bla bla blalorem ipsum bla bla blalorem blalorem ipsum bla bla blalorem ipsum bla bla blalorem ipsum bla bla bla
+							</div>
+							<div class="post-footer">
+								<div class="post-username">
+									User: username
+								</div>
+								<div class="post-date">
+									Posted: 31.05.2001
+								</div>
+							</div>
 						</div>
-						<div class="post-date">
-							Posted: 31.05.2001
-						</div>
-					</div>
+					-->
 				</div>
-			-->
 			</div>
 			<div id="ads">
 			<h4>Ads</h4>
@@ -94,7 +95,9 @@
 		</div>
 		
 		<div id="footer">
-			footer text
+				kill me please!!!
+				</br>
+				With <a href="http://adblockplus.org">AdBlock</a>
 		</div>
 	</div>
 </body>

@@ -1,4 +1,6 @@
 ﻿<?php
+  session_start();
+
   if (isset($_POST['post_header'])) {
     $post_header = $_POST['post_header'];
     if ($post_header == "") {
@@ -21,7 +23,14 @@
   
   include("db.php");
   
-  $result = mysql_query("INSERT INTO posts (UserID, post_header, post_text) VALUES (1, '$post_header', '$post_text')");
+  if (isset($_SESSION['id'])) {
+    $user_id = $_SESSION['id'];
+  }
+  else {
+	// ID 0 for anonymous
+    $user_id = 0;
+  }
+  add_post($user_id, $post_header, $post_text);
   
   header('Location: index.php');
 ?>

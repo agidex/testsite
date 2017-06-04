@@ -1,0 +1,33 @@
+<?php include "post_single.html"; ?>
+<div id="comments">
+  <div id="add-comment">
+  <label>Add comment</label><br>
+  <form action="save_comment.php?post_id=<?=$post_id?>", method="post">
+    <textarea name="comment_text" cols="40" rows="5"></textarea>
+    <p><input type="submit" value="Send"></input></p> 
+  </div>
+  <div id="comments-header">
+    <h5>Comments</h5>
+  </div>  
+  <div id="comments-section">
+  
+    <?php include "comments.html"; ?>
+    
+    <!-- <div class="comment"> -->
+      <!-- <div class="comment-header">Nonamae says:</div> -->
+      <!-- What The Fuck? -->
+      <!-- <div class="container comment-footer"> -->
+        <!-- <div class="comment-date">32.05.2012</div>  -->
+      <!-- </div> -->
+    <!-- </div> -->
+    
+    <!-- <div class="comment"> -->
+      <!-- <div class="comment-header">Anonymous says:</div> -->
+      <!-- Bla Bla Bla -->
+      <!-- <div class="container comment-footer"> -->
+        <!-- <div class="comment-date">32.05.2012</div>  -->
+      <!-- </div> -->
+    <!-- </div> -->
+
+  </div>  
+</div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Май 18 2017 г., 12:24
+-- Время создания: Июн 04 2017 г., 16:27
 -- Версия сервера: 10.1.21-MariaDB
 -- Версия PHP: 5.6.30
 
@@ -19,6 +19,33 @@ SET time_zone = "+00:00";
 --
 -- База данных: `testsite`
 --
+CREATE DATABASE IF NOT EXISTS `testsite` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `testsite`;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `comments`
+--
+
+DROP TABLE IF EXISTS `comments`;
+CREATE TABLE IF NOT EXISTS `comments` (
+  `CommentID` int(11) NOT NULL AUTO_INCREMENT,
+  `PostID` int(11) NOT NULL,
+  `UserID` int(11) NOT NULL,
+  `comment_text` text NOT NULL,
+  `comment_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`CommentID`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `comments`
+--
+
+INSERT INTO `comments` (`CommentID`, `PostID`, `UserID`, `comment_text`, `comment_date`) VALUES
+(7, 18, 1, 'What the Fuck?', '2017-05-18 13:17:59'),
+(8, 19, 0, 'Shut the fuck UP!!!', '2017-05-21 00:35:46'),
+(9, 19, 1, 'What the Fuck?', '2017-05-21 00:39:33');
 
 -- --------------------------------------------------------
 
@@ -26,40 +53,53 @@ SET time_zone = "+00:00";
 -- Структура таблицы `posts`
 --
 
-CREATE TABLE `posts` (
-  `PostID` int(11) NOT NULL,
+DROP TABLE IF EXISTS `posts`;
+CREATE TABLE IF NOT EXISTS `posts` (
+  `PostID` int(11) NOT NULL AUTO_INCREMENT,
   `UserID` int(11) NOT NULL,
   `post_header` varchar(255) NOT NULL,
   `post_text` text NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `post_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`PostID`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 --
 -- Дамп данных таблицы `posts`
 --
 
-INSERT INTO `posts` (`PostID`, `UserID`, `post_header`, `post_text`, `date`) VALUES
-(1, 1, 'Ð“Ð°Ð²Ñ€Ð¸Ð»Ð¾Ð²', 'Ð£Ð±Ð»ÑŽÐ´Ð¾Ðº, Ð¼Ð°Ñ‚ÑŒ Ñ‚Ð²Ð¾ÑŽ, Ð° Ð½Ñƒ Ð¸Ð´Ð¸ ÑÑŽÐ´Ð°, Ð³Ð¾Ð²Ð½Ð¾ ÑÐ¾Ð±Ð°Ñ‡ÑŒÐµ! Ð§Ñ‚Ð¾, Ñ€ÐµÑˆÐ¸Ð» ÐºÐ¾ Ð¼Ð½Ðµ Ð»ÐµÐ·Ñ‚ÑŒ?! Ð¢Ñ‹, Ð·Ð°ÑÑ€Ð°Ð½ÐµÑ† Ð²Ð¾Ð½ÑŽÑ‡Ð¸Ð¹, Ð¼Ð°Ñ‚ÑŒ Ñ‚Ð²Ð¾ÑŽ, Ð°? ÐÑƒ, Ð¸Ð´Ð¸ ÑÑŽÐ´Ð°,ï»¿ Ð¿Ð¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹ Ð¼ÐµÐ½Ñ Ñ‚Ñ€Ð°Ñ…Ð½ÑƒÑ‚ÑŒ, Ñ Ñ‚ÐµÐ±Ñ ÑÐ°Ð¼ Ñ‚Ñ€Ð°Ñ…Ð½Ñƒ, ÑƒÐ±Ð»ÑŽÐ´Ð¾Ðº, Ð¾Ð½Ð°Ð½Ð¸ÑÑ‚ Ñ‡ÐµÑ€Ñ‚Ð¾Ð², Ð±ÑƒÐ´ÑŒ Ñ‚Ñ‹ Ð¿Ñ€Ð¾ÐºÐ»ÑÑ‚! Ð˜Ð´Ð¸, Ð¸Ð´Ð¸Ð¾Ñ‚, Ñ‚Ñ€Ð°Ñ…Ð°Ñ‚ÑŒ Ñ‚ÐµÐ±Ñ Ð¸ Ð²ÑÑŽ Ñ‚Ð²Ð¾ÑŽ ÑÐµÐ¼ÑŒÑŽ, Ð³Ð¾Ð²Ð½Ð¾ ÑÐ¾Ð±Ð°Ñ‡ÑŒÐµ, Ð¶Ð»Ð¾Ð± Ð²Ð¾Ð½ÑŽÑ‡Ð¸Ð¹, Ð´ÐµÑ€ÑŒÐ¼Ð¾, ÑÑƒÐºÐ°, Ð¿Ð°Ð´Ð»Ð°! Ð˜Ð´Ð¸ ÑÑŽÐ´Ð°, Ð¼ÐµÑ€Ð·Ð°Ð²ÐµÑ†, Ð½ÐµÐ³Ð¾Ð´ÑÐ¹, Ð³Ð°Ð´, Ð¸Ð´Ð¸ ÑÑŽÐ´Ð°, Ñ‚Ñ‹, Ð³Ð¾Ð²Ð½Ð¾, Ð–ÐžÐŸÐ!', '2017-05-09 10:22:32');
+INSERT INTO `posts` (`PostID`, `UserID`, `post_header`, `post_text`, `post_date`) VALUES
+(2, 1, 'Idiotic header', 'Some degenerative text', '2017-05-07 20:46:24'),
+(3, 1, 'third post', 'fuck you!', '2017-05-07 20:47:24'),
+(15, 1, 'WTF', 'This is SPARTAAAA!!!', '2017-05-18 11:19:30'),
+(19, 2, 'Кровь и бетон', 'Ублюдок, мать твою, а ну иди сюда, говно собачье! Что, решил ко мне лезть?! Ты, засранец вонючий, мать твою, а? Ну, иди сюда,﻿ попробуй меня трахнуть, я тебя сам трахну, ублюдок, онанист чертов, будь ты проклят! Иди, идиот, трахать тебя и всю твою семью, говно собачье, жлоб вонючий, дерьмо, сука, падла! Иди сюда, мерзавец, негодяй, гад, иди сюда, ты, говно, ЖОПА!', '2017-05-18 22:25:03'),
+(20, 4, 'Lorem ipsum', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2017-06-04 13:04:47');
+
+-- --------------------------------------------------------
 
 --
--- Индексы сохранённых таблиц
+-- Структура таблицы `users`
 --
 
---
--- Индексы таблицы `posts`
---
-ALTER TABLE `posts`
-  ADD PRIMARY KEY (`PostID`);
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `UserID` int(11) NOT NULL AUTO_INCREMENT,
+  `user_login` varchar(255) NOT NULL,
+  `user_pass` varchar(255) NOT NULL,
+  `user_admin` tinyint(1) NOT NULL,
+  `user_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`UserID`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 --
--- AUTO_INCREMENT для сохранённых таблиц
+-- Дамп данных таблицы `users`
 --
 
---
--- AUTO_INCREMENT для таблицы `posts`
---
-ALTER TABLE `posts`
-  MODIFY `PostID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+INSERT INTO `users` (`UserID`, `user_login`, `user_pass`, `user_admin`, `user_date`) VALUES
+(1, 'nonamae', '1234', 0, '2017-05-14 14:20:19'),
+(2, 'Gavrilov', '1234', 0, '2017-05-18 22:23:59'),
+(3, 'admin', '1234', 1, '2017-05-28 13:31:33'),
+(4, 'Cicero', '1234', 0, '2017-06-04 13:04:03');
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,6 +1,6 @@
 ﻿<?php
-	$username = "";
+	session_start();
 
-	$templ = 'templates/add.html';
+	$templ = 'templates/add_post.html';
 	include('templates/index.html');
 ?>

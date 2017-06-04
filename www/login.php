@@ -1,3 +1,4 @@
 ﻿<?php
-     echo "hello world!";
+  $templ = 'templates/login.html';
+  include('templates/index.html');
 ?>

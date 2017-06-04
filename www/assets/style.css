@@ -60,7 +60,7 @@
 }
 
 .container {
-	margin: 0 auto;
+	/* margin: 0 auto; */
 	overflow: hidden;
 }
 
@@ -92,9 +92,13 @@
 	display: block;
 }
 
-#main-content {
+#main-container {
 	float:left;
 	width: 550px;
+}
+
+#main-content {
+  margin: 10px;
 }
 
 #ads {
@@ -111,12 +115,11 @@
 }
 
 .post {
-	/* width: 500px; */
 	border: 2px solid black;
 	border-radius: 5px;
 	display: block;
 	background-color: #9494b8;
-	margin: 10px;
+  margin-bottom: 10px;
 }
 
 .post-header {
@@ -144,8 +147,25 @@
 	float: right;
 }
 
-#add-post {
-  margin: 10px;
+#add-post textarea{
+  width: 100%;
+}
+
+#add-post input{
+  width: 100%;
+}
+
+.comment {
+  background-color: white;
+  margin-bottom: 10px;
+}
+
+.comment-date {
+  float: right;
+}
+
+#add-comment textarea{
+  width: 100%;
 }
 
 #footer {

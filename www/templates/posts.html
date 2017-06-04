@@ -1,18 +1,3 @@
 <?php foreach($posts as $p): ?>
-	<div class="post">
-		<div class="post-header">
-			<?=$p['title']?>
-		</div>
-		<div class="post-text">
-			<?=$p['text']?>
-		</div>
-		<div class="post-footer">
-			<div class="post-username">
-				User: <?=$p['user']?>
-			</div>
-			<div class="post-date">
-				Posted: <?=$p['date']?>
-			</div>
-		</div>
-	</div>
+<?php include "post_single.html"; ?>
 <?php endforeach; ?>
